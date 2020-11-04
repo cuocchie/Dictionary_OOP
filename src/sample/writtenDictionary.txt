@@ -1,5 +1,0 @@
-transport	di chuyen
-transgen	thay doi
-transit	test
-tranquil	thic
-help	giup
