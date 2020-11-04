@@ -16,11 +16,10 @@ import javafx.stage.Stage;
 import java.awt.*;
 
 public class AddBox {
-    static boolean added;
 
-    public static boolean display(String title, DictionaryManagement dictionaryManagement) {
+    public static void display(String title, DictionaryManagement dictionaryManagement) {
         Stage window = new Stage();
-        window.initModality(Modality.APPLICATION_MODAL);
+        //window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
         window.setMinWidth(250);
 
@@ -32,14 +31,6 @@ public class AddBox {
         TextField addingWord = new TextField();
         addingWord.setPromptText("Word to Add");
         GridPane.setConstraints(addingWord, 0, 0);
-//        addingWord.setOnKeyPressed(new EventHandler<KeyEvent>() {
-//            Label typedWord = new Label();
-//
-//            @Override
-//            public void handle(KeyEvent keyEvent) {
-//                typedWord.setText(addingWord.getText() + keyEvent.getText());
-//            }
-//        });
 
         TextField addingMeaning = new TextField();
         addingMeaning.setPromptText("Meaning");
@@ -50,14 +41,12 @@ public class AddBox {
         addButton.setOnAction(e -> {
             System.out.println(addingWord.getText());
             dictionaryManagement.addWord(addingWord.getText(), addingMeaning.getText());
-            added = true;
             window.close();
         });
         GridPane.setConstraints(addButton, 0, 1);
 
         Button quitButton = new Button("Back");
         quitButton.setOnAction(e -> {
-            added = false;
             window.close();
         });
         GridPane.setConstraints(quitButton, 1, 1);
@@ -68,7 +57,5 @@ public class AddBox {
         Scene scene = new Scene(addGridPane, 100, 100);
         window.setScene(scene);
         window.showAndWait();
-
-        return added;
     }
 }
