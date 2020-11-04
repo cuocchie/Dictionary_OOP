@@ -8,8 +8,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
-
-
 public class AlertBox {
 
     public static void display(String title, String message) {
